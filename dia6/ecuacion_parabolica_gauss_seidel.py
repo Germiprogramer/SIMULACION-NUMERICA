@@ -11,7 +11,7 @@ M = int(input("M: ")) # example: 40
 h = b / N
 K = d / M
 w = np.zeros((M + 1, N + 1))
-a = float(input("conductivity a: ")) # the thermal diffusivity, must be defined
+a = float(input("conductivity a: ")) # the thermal diffusivity, must be defined 0.5
 
 lambda_ = a**2 * K / h**2
 
@@ -40,3 +40,5 @@ ax.plot_surface(X, Y, w, cmap='viridis')
 ax.set_xlabel('Eje X')
 ax.set_ylabel('Eje Y')
 plt.show()
+
+#que observas en la grafica, de que tipo es la edp, sigue la solicion las caracteristicas de la edp, indica las caracteristicas
