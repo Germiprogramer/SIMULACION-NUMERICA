@@ -45,7 +45,7 @@ ax = fig.add_subplot(111, projection='3d')
 
 # Create grid
 x = np.linspace(0, b, N+1)
-X, Y = np.meshgrid(x, y)
+X, Y = np.meshgrid(x, np.linspace(0, d, M+1))
 
 # Plot the surface
 ax.plot_surface(X, Y, w.T, cmap='viridis')

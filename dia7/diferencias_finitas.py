@@ -68,3 +68,5 @@ fig.colorbar(surf, shrink=0.5, aspect=5)
 
 # Mostrar el gráfico
 plt.show()
+
+# u = fuente de calor
