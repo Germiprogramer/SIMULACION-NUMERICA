@@ -4,25 +4,24 @@ import matplotlib.pyplot as plt
 # Entrada de parámetros
 a = 0
 c = 0
-b = float(input('Ingresar valor de b: ')) # 5
-d = float(input('Ingresar valor de d: ')) # 10
-N = int(input('Ingresar valor de N: ')) # 40
-M = int(input('Ingresar valor de M: ')) # 400
+b = float(input('Ingresar valor de b: ')) # 0.5
+d = float(input('Ingresar valor de d: ')) # 0.5
+N = int(input('Ingresar valor de N: ')) # 30
+M = int(input('Ingresar valor de M: ')) # 30
+
+
 
 # Cálculo de pasos
+# x = h*i
 h = b / N
+# y = k*j
 k = d / M
 
 # Inicialización de la matriz w con dimensiones correctas
 w = np.zeros((N+1, M+1))  # +1 para incluir los bordes
 
-# Función f(i, j) como fuente
-
-
-
-
 for i in range(N):
-    w[i][0] = np.exp(-((i*h-(2.5))**2)) # Frontera inferior
+    w[i][0] = np.exp(-((i*h-(0.25))**2)) # Frontera inferior
     
 for j in range(M):
     w[0][j] = 0
@@ -33,7 +32,9 @@ for j in range(M):
 for p in range(100):
     for i in range(1, N):
         for j in range(1, M):
-            w[i][j] = ((w[i][j+1]+w[i][j-1])*k+(h**2+(h**3)*i)*w[i][j-1])/((-h**3)*k*i + 2*k +h**2 + (h**3)*i)
+            w[i][j] = (h**2/2)*((4*k*(w[i+1][j] + w[i-1][j]) + h*(w[i+1][j+1] + w[i-1][j-1] - w[i-1][j+1] - w[i+1][j-1]))/(4*(h**2)*k))
+            
+            
 
 # Crear una malla de coordenadas para graficar
 x = np.linspace(a, b, N+1)

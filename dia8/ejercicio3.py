@@ -22,7 +22,8 @@ w = np.zeros((N+1, M+1))  # +1 para incluir los bordes
 
 
 for i in range(N):
-    w[i][0] = np.exp(-((i*h-(2.5))**2)) # Frontera inferior
+    w[i][0] = np.exp(-((i*h-(0.5))**2)) # Frontera inferior
+    w[i][1] = 0
     
 for j in range(M):
     w[0][j] = 0
@@ -33,7 +34,9 @@ for j in range(M):
 for p in range(100):
     for i in range(1, N):
         for j in range(1, M):
-            w[i][j] = ((w[i][j+1]+w[i][j-1])*k+(h**2+(h**3)*i)*w[i][j-1])/((-h**3)*k*i + 2*k +h**2 + (h**3)*i)
+            w[i][j] = (((w[i+1][j] + w[i-1][j])*(k**2) + (w[i][j+1] + w[i][j-1])*(h**2))/(2*(k**2 + h**2))) + (((w[i+1][j+1] + w[i-1][j-1] - w[i-1][j+1] - w[i+1][j-1])*h*k)/(8*(k**2 + h**2)))
+            
+            
 
 # Crear una malla de coordenadas para graficar
 x = np.linspace(a, b, N+1)
