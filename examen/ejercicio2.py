@@ -6,20 +6,22 @@ a = 0
 b = float(input('Ingresar valor de b: ')) #5
 c = 0
 d = float(input('Ingresar valor de d: ')) #10
-N = int(input('Ingresar valor de N: '))
-M = int(input('Ingresar valor de M: '))
+N = int(input('Ingresar valor de N: ')) #40
+M = int(input('Ingresar valor de M: ')) #400
+
+#x = a + h*i
+#y = c + k*j
 
 # Cálculo de pasos
 h = (b - a) / N
 k = (d - c) / M
-
 
 vmax = h/k  # (BM)/(Nd)
 
 
 print("Velocidad máxima: ", vmax)
 
-v = float(input('Ingresar valor de velocidad: '))
+v = float(input('Ingresar valor de velocidad: ')) #0.3
 
 p = v*k/h
 
@@ -32,12 +34,13 @@ def f(x):
 
 def g(x):
     return 0
-
+#x = a + h*i
+#y = c + k*j
 
 for i in range(1, N):
-    w[i][0] = f(h*i)  # Frontera inferior
+    w[i][0] = 10*(a+i*h)*(5-(a+i*h))  # Frontera inferior
     # Frontera superior, recordar que xi= xo(a) + ih
-    w[i][1] = w[i][0] + k*g(h*i)
+    w[i][1] = w[i][0] + k*(250/4 - 10*(a+i*h)*(5-(a+i*h)))
 
 for j in range(1, M):
     w[0][j] = 0  # Frontera izquierda, recordar que yi= yo(c) + kj

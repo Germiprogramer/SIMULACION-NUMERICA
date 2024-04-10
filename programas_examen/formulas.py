@@ -6,3 +6,7 @@ B**2 - 4*A*C
 > Hiperbolica
 = Parabolica
 < Eliptica
+
+hiperbolica dos curvas caracteristicas
+parabolica una curva caracteristica se disipa el calor
+eliptica imaginaria minimiza la energia
