@@ -22,7 +22,7 @@ for j in range(M+1):
 
 # Gauss-Seidel iteration
 # Assuming convergence within 10000 iterations for demonstration purposes
-for _ in range(10000):
+for _ in range(1000):
     for i in range(1, N):
         for j in range(1, M):
             # Apply Gauss-Seidel update
