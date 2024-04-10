@@ -28,14 +28,14 @@ w = np.zeros((M+1, N+1))  # +1 para incluir los bordes
 
 
 def f(x):
-    return 0
+    return x*(b-x)
 
 def g(x):
     return 0
 
 
 for j in range(1, M):
-    w[j][0] = 3 * np.sin(k*j)  # Frontera izquierda, recordar que yi= yo(c) + kj
+    w[j][0] = 0  # Frontera izquierda, recordar que yi= yo(c) + kj
     w[j][N] = 0  # Frontera derecha
     
 

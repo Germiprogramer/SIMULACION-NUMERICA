@@ -37,7 +37,7 @@ def g(x):
 for i in range(1, N):
     w[i][0] = f(h*i)  # Frontera inferior
     # Frontera superior, recordar que xi= xo(a) + ih
-    w[i][1] = w[0][i] + k*g(h*i)
+    w[i][1] = w[i][0] + k*g(h*i)
 
 for j in range(1, M):
     w[0][j] = 0  # Frontera izquierda, recordar que yi= yo(c) + kj
