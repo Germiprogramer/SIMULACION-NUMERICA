@@ -34,19 +34,18 @@ v = float(input('Ingresar valor de velocidad: ')) #0.5
 p = v*k/h
 
 # Inicialización de la matriz w con dimensiones correctas
-w = np.zeros((N+1, M+1))  # +1 para incluir los bordes
+w = np.zeros((M+1, N+1))  # +1 para incluir los bordes
 
 
 def f(x):
-    return x*(b-x)
+    return 0
 
 def g(x):
     return 0
 
 
-
 for j in range(1, M):
-    w[j][0] = 0 # Frontera izquierda, recordar que yi= yo(c) + kj
+    w[j][0] = 3 * np.cos(k*j)  # Frontera izquierda, recordar que yi= yo(c) + kj
     w[j][N] = 0  # Frontera derecha
 
 
@@ -59,8 +58,9 @@ for i in range(1, N):
 # Iteraciones para la solución
 for j in range(1, M):
     for i in range(1, N):
-        w[i][j+1] = (v**2)*(k**2)*(((w[i+1][j] - 2*w[i][j] + w[i-1][j])/(h**2)) - ((- 2*w[i][j] + w[i][j-1])/((k**2)*(v**2))))
-        
+        w[j + 1][i] = 2*(1-p**2)*w[j][i] + (p**2) * \
+            (w[j][i + 1] + w[j][i-1]) - w[j-1][i]
+
 
 # Crear una malla de coordenadas para graficar
 x = np.linspace(a, b, N+1)
@@ -82,14 +82,3 @@ ax.set_zlabel('w')
 # Añadir barra de colores para la escala
 fig.colorbar(surf)
 plt.show()
-
-
-# ? Ejercicio 1 b = 5 d= 10 N = 40 M = 400 v = 0-5 f(x) = x(b-x) g(x) = 0
-
-# ? Ejercicio 2 b = 5 d= 10 N = 40 M = 400 v = 0-5 f(x) = return x if x <= b/2 else b-x g(x) = 0
-
-# ? Ejercicio 3 b = pi d= 10 N = 40 M = 400 v = 0-5 f(x) = 0 g(x) = sin(x)
-
-# ? Ejercicio 4 b = 6 d= 24 N = 600 M = 2400 v = 0,5 f(x) = return 1 if 1<= x <= 3 else 0 g(x) = 0
-
-# ? Ejercicio 5 ondas no estacionarias f = 0 g = 0

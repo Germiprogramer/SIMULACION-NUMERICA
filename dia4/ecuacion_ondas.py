@@ -37,6 +37,7 @@ def g(x):
 for j in range(1, M):
     w[j][0] = 3 * np.sin(k*j)  # Frontera izquierda, recordar que yi= yo(c) + kj
     w[j][N] = 0  # Frontera derecha
+    
 
 
 for i in range(1, N):

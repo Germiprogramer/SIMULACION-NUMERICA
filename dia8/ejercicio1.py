@@ -16,11 +16,6 @@ k = d / M
 # Inicialización de la matriz w con dimensiones correctas
 w = np.zeros((N+1, M+1))  # +1 para incluir los bordes
 
-# Función f(i, j) como fuente
-
-
-
-
 for i in range(N):
     w[i][0] = np.exp(-((i*h-(2.5))**2)) # Frontera inferior
     

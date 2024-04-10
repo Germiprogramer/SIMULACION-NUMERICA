@@ -1,4 +1,3 @@
-
 #ecuaciones elipticas
 
 '''
